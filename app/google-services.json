@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "587585266757",
+    "project_id": "reporra-26343",
+    "storage_bucket": "reporra-26343.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:587585266757:android:646591ed2f04de76feaf2c",
+        "android_client_info": {
+          "package_name": "com.example.reporra"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBCQrzkhC6fUPeoxyPEu3zctyTVcKfKPQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
