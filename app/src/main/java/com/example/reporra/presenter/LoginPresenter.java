@@ -1,5 +1,6 @@
 package com.example.reporra.presenter;
 
+<<<<<<< HEAD
 import android.text.TextUtils;
 
 import com.example.reporra.view.contracts.LoginContract;
@@ -34,4 +35,8 @@ public class LoginPresenter implements LoginContract.Presenter {
                     }
                 });
     }
+=======
+
+public class LoginPresenter {
+>>>>>>> b63e4da909a72e7d409bb75d34ec442eddcf9e9c
 }

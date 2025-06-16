@@ -13,9 +13,12 @@
         android:theme="@style/Theme.Reporra"
         tools:targetApi="31">
         <activity
+<<<<<<< HEAD
             android:name=".view.activities.HomeActivity"
             android:exported="false" />
         <activity
+=======
+>>>>>>> b63e4da909a72e7d409bb75d34ec442eddcf9e9c
             android:name=".view.activities.SignupActivity"
             android:exported="false" />
         <activity

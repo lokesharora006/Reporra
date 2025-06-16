@@ -1,5 +1,6 @@
 package com.example.reporra.view.activities;
 
+<<<<<<< HEAD
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+=======
+import android.os.Bundle;
+>>>>>>> b63e4da909a72e7d409bb75d34ec442eddcf9e9c
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +20,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.reporra.R;
+<<<<<<< HEAD
 import com.example.reporra.presenter.LoginPresenter;
 import com.example.reporra.view.contracts.LoginContract;
 import com.google.android.gms.common.SignInButton;
@@ -31,12 +36,17 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     private LoginContract.Presenter presenter;
 
     private TextView forgetbtn;
+=======
+
+public class LoginActivity extends AppCompatActivity {
+>>>>>>> b63e4da909a72e7d409bb75d34ec442eddcf9e9c
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
+<<<<<<< HEAD
 
         forgetbtn = findViewById(R.id.tvForgotPassword);
         etEmail = findViewById(R.id.etEmail);
@@ -95,5 +105,12 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     public void hideProgress() {
         progressDialog.dismiss();
 
+=======
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+>>>>>>> b63e4da909a72e7d409bb75d34ec442eddcf9e9c
     }
 }
