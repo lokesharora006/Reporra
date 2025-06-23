@@ -1,6 +1,6 @@
 package com.example.reporra.view.activities;
 
-<<<<<<< HEAD
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,9 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-=======
-import android.os.Bundle;
->>>>>>> b63e4da909a72e7d409bb75d34ec442eddcf9e9c
+
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +18,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.reporra.R;
-<<<<<<< HEAD
 import com.example.reporra.presenter.LoginPresenter;
 import com.example.reporra.view.contracts.LoginContract;
 import com.google.android.gms.common.SignInButton;
@@ -28,25 +25,24 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity implements LoginContract.View {
 
-
     private EditText etEmail, etPassword;
     private Button btnLogin;
     private SignInButton btnGoogleSignIn;
     private ProgressDialog progressDialog;
     private LoginContract.Presenter presenter;
-
     private TextView forgetbtn;
-=======
-
-public class LoginActivity extends AppCompatActivity {
->>>>>>> b63e4da909a72e7d409bb75d34ec442eddcf9e9c
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
-<<<<<<< HEAD
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
 
         forgetbtn = findViewById(R.id.tvForgotPassword);
         etEmail = findViewById(R.id.etEmail);
@@ -59,15 +55,9 @@ public class LoginActivity extends AppCompatActivity {
 
         presenter = new LoginPresenter(this, FirebaseAuth.getInstance());
 
-
-
-        forgetbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                startActivity(intent);
-
-            }
+        forgetbtn.setOnClickListener(view -> {
+            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+            startActivity(intent);
         });
 
         btnLogin.setOnClickListener(v -> {
@@ -76,12 +66,10 @@ public class LoginActivity extends AppCompatActivity {
             presenter.loginWithEmail(email, password);
         });
 
-        btnGoogleSignIn.setOnClickListener(v -> {
-            // Next: add Google sign-in logic
-            Toast.makeText(this, "Google Sign-In coming next...", Toast.LENGTH_SHORT).show();
-        });
+        btnGoogleSignIn.setOnClickListener(v ->
+                Toast.makeText(this, "Google Sign-In coming next...", Toast.LENGTH_SHORT).show()
+        );
     }
-
 
     @Override
     public void showLoginSuccess(String message) {
@@ -98,19 +86,10 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void showProgress() {
         progressDialog.show();
-
     }
 
     @Override
     public void hideProgress() {
         progressDialog.dismiss();
-
-=======
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
->>>>>>> b63e4da909a72e7d409bb75d34ec442eddcf9e9c
     }
 }

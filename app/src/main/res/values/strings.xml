@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">Reporra</string>
-<<<<<<< HEAD
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-=======
->>>>>>> b63e4da909a72e7d409bb75d34ec442eddcf9e9c
 </resources>
