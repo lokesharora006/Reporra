@@ -12,7 +12,12 @@
           "package_name": "com.example.reporra"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "587585266757-sitscrlik63k22sv95mim6fau97a58o8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCBCQrzkhC6fUPeoxyPEu3zctyTVcKfKPQ"
@@ -20,7 +25,41 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "587585266757-sitscrlik63k22sv95mim6fau97a58o8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:587585266757:android:fad05833762fa6a2feaf2c",
+        "android_client_info": {
+          "package_name": "com.lokesh.reporra"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "587585266757-sitscrlik63k22sv95mim6fau97a58o8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBCQrzkhC6fUPeoxyPEu3zctyTVcKfKPQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "587585266757-sitscrlik63k22sv95mim6fau97a58o8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
