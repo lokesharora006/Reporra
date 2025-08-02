@@ -15,7 +15,7 @@ import com.example.reporra.data.model.AreaModel;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//
 //public class DeletedAreaAdapter extends RecyclerView.Adapter<DeletedAreaAdapter.AreaViewHolder> implements Filterable {
 //
 //    private List<AreaModel> areaList;
@@ -26,13 +26,13 @@ import java.util.List;
 //        this.areaListFull = new ArrayList<>(areaList); // for filtering
 //    }
 //
-////    @NonNull
-////    @Override
-////    public AreaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-////        View view = LayoutInflater.from(parent.getContext())
-////                .inflate(R.layout.item_deleted_area, parent, false);
-////        return new AreaViewHolder(view);
-////    }
+//    @NonNull
+//    @Override
+//    public AreaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+//        View view = LayoutInflater.from(parent.getContext())
+//                .inflate(R.layout.item_deleted_area, parent, false);
+//        return new AreaViewHolder(view);
+//    }
 //
 //    @Override
 //    public void onBindViewHolder(@NonNull AreaViewHolder holder, int position) {
@@ -50,7 +50,7 @@ import java.util.List;
 //
 //        public AreaViewHolder(@NonNull View itemView) {
 //            super(itemView);
-//
+//            txtAreaName = itemView.findViewById(R.id.txtAreaName);
 //        }
 //    }
 //
