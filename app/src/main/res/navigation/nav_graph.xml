@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.reporra.view.fragments.HomeFragment"
+        android:label="HomeFragment">
+        <action
+            android:id="@+id/action_homeFragment_to_myNetworkFragment"
+            app:destination="@id/myNetworkFragment" />
+
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/myNetworkFragment"
+        android:name="com.example.reporra.view.fragments.MyNetworkFragment"
+        android:label="MyNetworkFragment">
+        <action
+            android:id="@+id/action_myNetworkFragment_to_areaFragment"
+            app:destination="@id/areaFragment" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/areaFragment"
+        android:name="com.example.reporra.view.fragments.mynetwork.area.AreaFragment"
+        android:label="AreaFragment" />
+
+</navigation>

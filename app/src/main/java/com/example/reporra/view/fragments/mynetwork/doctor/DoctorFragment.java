@@ -9,58 +9,107 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.reporra.R;
+import com.example.reporra.view.fragments.mynetwork.area.AddAreaFragment;
+import com.example.reporra.view.fragments.mynetwork.area.AreaTabFragment;
+import com.example.reporra.view.fragments.mynetwork.area.DeletedAreasFragment;
+import com.example.reporra.view.fragments.mynetwork.area.RejectedFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link DoctorFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class DoctorFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private BottomNavigationView bottomNavigationView;
+
+    private FloatingActionButton fabAddDoctor;
 
     public DoctorFragment() {
         // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment DoctorFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static DoctorFragment newInstance(String param1, String param2) {
-        DoctorFragment fragment = new DoctorFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_doctor, container, false);
+        View view = inflater.inflate(R.layout.fragment_doctor, container, false);
+
+    }
+}
+
+        getChildFragmentManager().addOnBackStackChangedListener(() -> {
+            if (getChildFragmentManager().getBackStackEntryCount() == 0) {
+//                fabAddArea.setVisibility(View.VISIBLE);
+                bottomNavigationView.setVisibility(View.VISIBLE);
+            }
+        });
+    }
+}
+         Initialize views
+        bottomNavigationView = view.findViewById(R.id.bottomNavigationView);
+        fabAddArea = view.findViewById(R.id.fabAddArea);
+
+
+        fabAddArea.setVisibility(View.VISIBLE);
+
+         Load default fragment (AreaTabFragment)
+        loadFragment(new AreaTabFragment());
+
+        // Handle BottomNavigationView item clicks
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            Fragment selectedFragment = null;
+
+            int itemId = item.getItemId();
+            if (itemId == R.id.nav_area) {
+                selectedFragment = new AreaTabFragment();
+            } else if (itemId == R.id.nav_deleted) {
+                selectedFragment = new DeletedAreasFragment();
+            } else if (itemId == R.id.nav_rejected) {
+                selectedFragment = new RejectedFragment();
+            }
+
+            return loadFragment(selectedFragment);
+        });
+
+        // Handle FAB click - Navigate to full screen AddAreaFragment
+//        fabAddArea.setOnClickListener(v -> {
+//            AddAreaFragment addAreaFragment = new AddAreaFragment(); // Now should extend Fragment, not BottomSheetDialogFragment
+//
+//            // Hide the FAB and BottomNavigation when navigating to AddAreaFragment
+//            fabAddArea.setVisibility(View.GONE);
+//            bottomNavigationView.setVisibility(View.GONE);
+
+            // Navigate to full screen fragment
+//            getChildFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container_area, addAreaFragment)
+                    .addToBackStack("AddArea") // Add to back stack for navigation
+                    .commit();
+        });
+
+        return view;
+    }
+
+    private boolean loadFragment(Fragment fragment) {
+        if (fragment != null) {
+            // Show FAB and BottomNavigation when loading normal fragments
+            if (fabAddArea != null) fabAddArea.setVisibility(View.VISIBLE);
+            if (bottomNavigationView != null) bottomNavigationView.setVisibility(View.VISIBLE);
+
+            getChildFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container_area, fragment)
+                    .commit();
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Ensure FAB and BottomNav are visible when returning to this fragment
+        if (fabAddArea != null) fabAddArea.setVisibility(View.VISIBLE);
+        if (bottomNavigationView != null) bottomNavigationView.setVisibility(View.VISIBLE);
     }
 }
