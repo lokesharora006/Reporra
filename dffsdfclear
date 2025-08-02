@@ -1,0 +1,79 @@
+[1mdiff --git a/.idea/appInsightsSettings.xml b/.idea/appInsightsSettings.xml[m
+[1mindex f18ed8a..cc5f829 100644[m
+[1m--- a/.idea/appInsightsSettings.xml[m
+[1m+++ b/.idea/appInsightsSettings.xml[m
+[36m@@ -7,14 +7,6 @@[m
+         <entry key="Firebase Crashlytics">[m
+           <value>[m
+             <InsightsFilterSettings>[m
+[31m-              <option name="connection">[m
+[31m-                <ConnectionSetting>[m
+[31m-                  <option name="appId" value="com.example.reporra" />[m
+[31m-                  <option name="mobileSdkAppId" value="1:587585266757:android:646591ed2f04de76feaf2c" />[m
+[31m-                  <option name="projectId" value="reporra-26343" />[m
+[31m-                  <option name="projectNumber" value="587585266757" />[m
+[31m-                </ConnectionSetting>[m
+[31m-              </option>[m
+               <option name="signal" value="SIGNAL_UNSPECIFIED" />[m
+               <option name="timeIntervalDays" value="THIRTY_DAYS" />[m
+               <option name="visibilityType" value="ALL" />[m
+[1mdiff --git a/app/build.gradle.kts b/app/build.gradle.kts[m
+[1mindex 2b26b9d..a416324 100644[m
+[1m--- a/app/build.gradle.kts[m
+[1m+++ b/app/build.gradle.kts[m
+[36m@@ -45,4 +45,7 @@[m [mdependencies {[m
+     testImplementation(libs.junit)[m
+     androidTestImplementation(libs.ext.junit)[m
+     androidTestImplementation(libs.espresso.core)[m
+[32m+[m[32m    implementation(libs.navigation.fragment)[m
+[32m+[m[32m    //noinspection UseTomlInstead[m
+[32m+[m[32m    implementation("androidx.navigation:navigation-ui:2.9.0")[m
+ }[m
+\ No newline at end of file[m
+[1mdiff --git a/app/src/main/java/com/example/reporra/data/adapters/area/DeletedAreaAdapter.java b/app/src/main/java/com/example/reporra/data/adapters/area/DeletedAreaAdapter.java[m
+[1mindex 56f215b..7ca16aa 100644[m
+[1m--- a/app/src/main/java/com/example/reporra/data/adapters/area/DeletedAreaAdapter.java[m
+[1m+++ b/app/src/main/java/com/example/reporra/data/adapters/area/DeletedAreaAdapter.java[m
+[36m@@ -10,6 +10,7 @@[m [mimport android.widget.TextView;[m
+ import androidx.annotation.NonNull;[m
+ import androidx.recyclerview.widget.RecyclerView;[m
+ [m
+[32m+[m[32mimport com.example.reporra.R;[m
+ import com.example.reporra.data.model.AreaModel;[m
+ [m
+ import java.util.ArrayList;[m
+[1mdiff --git a/app/src/main/java/com/example/reporra/data/adapters/area/RejectedPagerAdapter.java b/app/src/main/java/com/example/reporra/data/adapters/area/RejectedPagerAdapter.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..d78b019[m
+[1m--- /dev/null[m
+[1m+++ b/app/src/main/java/com/example/reporra/data/adapters/area/RejectedPagerAdapter.java[m
+[36m@@ -0,0 +1,27 @@[m
+[32m+[m[32mpackage com.example.reporra.data.adapters.area;[m
+[32m+[m
+[32m+[m[32mimport androidx.annotation.NonNull;[m
+[32m+[m[32mimport androidx.fragment.app.Fragment;[m
+[32m+[m[32mimport androidx.viewpager2.adapter.FragmentStateAdapter;[m
+[32m+[m
+[32m+[m[32mimport com.example.reporra.view.fragments.mynetwork.area.RejectedAdditionFragment;[m
+[32m+[m[32mimport com.example.reporra.view.fragments.mynetwork.area.RejectedDeletionFragment;[m
+[32m+[m
+[32m+[m[32mpublic class RejectedPagerAdapter extends FragmentStateAdapter {[m
+[32m+[m
+[32m+[m[32m    public RejectedPagerAdapter(@NonNull Fragment fragment) {[m
+[32m+[m[32m        super(fragment);[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @NonNull[m
+[32m+[m[32m    @Override[m
+[32m+[m[32m    public Fragment createFragment(int position) {[m
+[32m+[m[32m        return (position == 0) ? new RejectedAdditionFragment() : new RejectedDeletionFragment();[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    @Override[m
+[32m+[m[32m    public int getItemCount() {[m
+[32m+[m[32m        return 2;[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m}[m
+[1mdiff --git a/app/src/main/java/com/example/reporra/view/activities/HomeActivity.java b/app/src/main/java/com/example/reporra/view/activities/HomeActivity.java[m
+[1mind

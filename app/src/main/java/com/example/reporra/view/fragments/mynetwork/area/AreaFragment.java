@@ -40,9 +40,20 @@ public class AreaFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_area, container, false);
 
+
+        getChildFragmentManager().addOnBackStackChangedListener(() -> {
+            if (getChildFragmentManager().getBackStackEntryCount() == 0) {
+                fabAddArea.setVisibility(View.VISIBLE);
+                bottomNavigationView.setVisibility(View.VISIBLE);
+            }
+        });
+
         // Initialize views
         bottomNavigationView = view.findViewById(R.id.bottomNavigationView);
         fabAddArea = view.findViewById(R.id.fabAddArea);
+
+
+        fabAddArea.setVisibility(View.VISIBLE);
 
         // Load default fragment (AreaTabFragment)
         loadFragment(new AreaTabFragment());
@@ -63,10 +74,20 @@ public class AreaFragment extends Fragment {
             return loadFragment(selectedFragment);
         });
 
-        // Handle FAB click
+        // Handle FAB click - Navigate to full screen AddAreaFragment
         fabAddArea.setOnClickListener(v -> {
-            AddAreaFragment addAreaFragment = new AddAreaFragment(); // Must extend BottomSheetDialogFragment
-            addAreaFragment.show(getParentFragmentManager(), addAreaFragment.getTag());
+            AddAreaFragment addAreaFragment = new AddAreaFragment(); // Now should extend Fragment, not BottomSheetDialogFragment
+
+            // Hide the FAB and BottomNavigation when navigating to AddAreaFragment
+            fabAddArea.setVisibility(View.GONE);
+            bottomNavigationView.setVisibility(View.GONE);
+
+            // Navigate to full screen fragment
+            getChildFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container_area, addAreaFragment)
+                    .addToBackStack("AddArea") // Add to back stack for navigation
+                    .commit();
         });
 
         return view;
@@ -74,6 +95,10 @@ public class AreaFragment extends Fragment {
 
     private boolean loadFragment(Fragment fragment) {
         if (fragment != null) {
+            // Show FAB and BottomNavigation when loading normal fragments
+            if (fabAddArea != null) fabAddArea.setVisibility(View.VISIBLE);
+            if (bottomNavigationView != null) bottomNavigationView.setVisibility(View.VISIBLE);
+
             getChildFragmentManager()
                     .beginTransaction()
                     .replace(R.id.fragment_container_area, fragment)
@@ -81,5 +106,13 @@ public class AreaFragment extends Fragment {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Ensure FAB and BottomNav are visible when returning to this fragment
+        if (fabAddArea != null) fabAddArea.setVisibility(View.VISIBLE);
+        if (bottomNavigationView != null) bottomNavigationView.setVisibility(View.VISIBLE);
     }
 }

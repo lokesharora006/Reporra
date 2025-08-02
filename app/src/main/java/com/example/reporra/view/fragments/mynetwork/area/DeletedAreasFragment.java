@@ -12,8 +12,9 @@ import android.view.ViewGroup;
 import android.widget.SearchView;
 
 import com.example.reporra.R;
-import com.example.reporra.data.adapters.area.DeletedAreaAdapter;
+//import com.example.reporra.data.adapters.area.DeletedAreaAdapter;
 import com.example.reporra.data.model.AreaModel;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +23,10 @@ import java.util.List;
 public class DeletedAreasFragment extends Fragment {
 
 
+    private FloatingActionButton fabAddArea;
     private SearchView searchView;
     private RecyclerView recyclerView;
-    private DeletedAreaAdapter adapter;
+    //    private DeletedAreaAdapter adapter;
     private List<AreaModel> deletedAreas;
 
     public DeletedAreasFragment() {
@@ -44,14 +46,20 @@ public class DeletedAreasFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         // Dummy data for testing
-        deletedAreas = new ArrayList<>();
-        deletedAreas.add(new AreaModel("Sector 12"));
-        deletedAreas.add(new AreaModel("Palam Vihar"));
-        deletedAreas.add(new AreaModel("DLF Phase 3"));
+//        deletedAreas = new ArrayList<>();
+//        deletedAreas.add(new AreaModel("Sector 12"));
+//        deletedAreas.add(new AreaModel("Palam Vihar"));
+//        deletedAreas.add(new AreaModel("DLF Phase 3"));
 
         // Setup adapter
-        adapter = new DeletedAreaAdapter(deletedAreas);
-        recyclerView.setAdapter(adapter);
+//        adapter = new DeletedAreaAdapter(deletedAreas);
+//        recyclerView.setAdapter(adapter);
+
+
+        if (fabAddArea != null) {
+            fabAddArea.setVisibility(View.GONE); // 👈 Hide FAB
+        }
+
 
         // Handle search
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -62,7 +70,7 @@ public class DeletedAreasFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                adapter.getFilter().filter(newText);
+//                adapter.getFilter().filter(newText);
                 return true;
             }
         });
