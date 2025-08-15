@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragments.mynetwork.doctor.AddDoctorFragment"
+    >
+
+    <!-- Header with Gradient -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header_layout"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:background="@drawable/header_gradient"
+        android:elevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/circular_ripple"
+            android:contentDescription="Back"
+            android:padding="6dp"
+            android:src="@drawable/ic_arrow_back_white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/header_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:letterSpacing="0.02"
+            android:text="Add Doctor"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <View
+            android:id="@+id/decorative_circle"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="20dp"
+            android:alpha="0.6"
+            android:background="@drawable/decorative_circle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Scrollable Content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_layout"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+            >
+
+            <!-- Doctor Name Field (Mandatory) -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_doctor_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Doctor Name *"
+                app:boxBackgroundColor="@android:color/white"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/gradient_blue"
+                app:boxStrokeWidth="2dp"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/gradient_blue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:startIconDrawable="@drawable/ic_doctor"
+                app:startIconTint="@color/gradient_blue"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_doctor_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Doctor Name"
+                    android:inputType="textPersonName|textCapWords"
+                    android:padding="16dp"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Specialization Field (Mandatory) -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_specialization"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/gradient_purple"
+                app:boxStrokeWidth="2dp"
+                app:hintTextColor="@color/gradient_purple"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_doctor_name"
+                app:startIconDrawable="@drawable/ic_specialization"
+                app:startIconTint="@color/gradient_purple"
+                >
+
+                <AutoCompleteTextView
+                    android:id="@+id/spinner_specialization"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:hint="Specialization *"
+                    android:inputType="none"
+                    android:padding="16dp"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Mobile Number Field (Optional) -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_mobile_number"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:boxBackgroundColor="@android:color/white"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/gradient_green"
+                app:boxStrokeWidth="2dp"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/gradient_green"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_specialization"
+                app:startIconDrawable="@drawable/ic_phone"
+                app:startIconTint="@color/gradient_green"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_mobile_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Mobile Number (Optional)"
+                    android:inputType="phone"
+                    android:maxLength="10"
+                    android:padding="16dp"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Clinic/Hospital Field (Optional) -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_clinic_hospital"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:boxBackgroundColor="@android:color/white"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/gradient_orange"
+                app:boxStrokeWidth="2dp"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/gradient_orange"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_mobile_number"
+                app:startIconDrawable="@drawable/ic_hospital"
+                app:startIconTint="@color/gradient_orange"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_clinic_hospital"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Clinic/Hospital (Optional)"
+                    android:inputType="textCapWords"
+                    android:padding="16dp"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Area Field (Mandatory) -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_area"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/gradient_pink"
+                app:boxStrokeWidth="2dp"
+                app:hintTextColor="@color/gradient_pink"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_clinic_hospital"
+                app:startIconDrawable="@drawable/ic_location"
+                app:startIconTint="@color/gradient_pink"
+                >
+
+                <AutoCompleteTextView
+                    android:id="@+id/spinner_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:hint="Area *"
+                    android:inputType="none"
+                    android:padding="16dp"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- City Field (Optional) -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layout_city"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:boxBackgroundColor="@android:color/white"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusBottomEnd="12dp"
+                app:boxCornerRadiusBottomStart="12dp"
+                app:boxCornerRadiusTopEnd="12dp"
+                app:boxCornerRadiusTopStart="12dp"
+                app:boxStrokeColor="@color/gradient_teal"
+                app:boxStrokeWidth="2dp"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/gradient_teal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_area"
+                app:startIconDrawable="@drawable/ic_city"
+                app:startIconTint="@color/gradient_teal"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="City (Optional)"
+                    android:inputType="textCapWords"
+                    android:padding="16dp"
+                    android:textColor="#333333"
+                    android:textSize="16sp"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Show Advanced Fields Button -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btn_show_advanced"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/advanced_toggle_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layout_city"
+                >
+
+                <ImageView
+                    android:id="@+id/icon_advanced"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_add_circle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/gradient_purple"
+                    />
+
+                <TextView
+                    android:id="@+id/text_advanced"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:text="Show Advanced Fields"
+                    android:textColor="@color/gradient_purple"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/icon_arrow"
+                    app:layout_constraintStart_toEndOf="@id/icon_advanced"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <ImageView
+                    android:id="@+id/icon_arrow"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_expand_more"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/gradient_purple"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Advanced Fields Container (Initially Hidden) -->
+            <LinearLayout
+                android:id="@+id/advanced_fields_container"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_show_advanced"
+                >
+
+                <!-- Doctor Code Field -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_doctor_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    app:boxBackgroundColor="@android:color/white"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeColor="@color/gradient_indigo"
+                    app:boxStrokeWidth="2dp"
+                    app:endIconMode="clear_text"
+                    app:hintTextColor="@color/gradient_indigo"
+                    app:startIconDrawable="@drawable/ic_code"
+                    app:startIconTint="@color/gradient_indigo"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_doctor_code"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Doctor Code"
+                        android:inputType="textCapCharacters"
+                        android:padding="16dp"
+                        android:textColor="#333333"
+                        android:textSize="16sp"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Aadhaar Number Field -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_aadhaar_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    app:boxBackgroundColor="@android:color/white"
+                    app:boxBackgroundMode="outline"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxStrokeColor="@color/gradient_red"
+                    app:boxStrokeWidth="2dp"
+                    app:endIconMode="clear_text"
+                    app:hintTextColor="@color/gradient_red"
+                    app:startIconDrawable="@drawable/ic_id_card"
+                    app:startIconTint="@color/gradient_red"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_aadhaar_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Aadhaar Number"
+                        android:inputType="number"
+                        android:maxLength="12"
+                        android:padding="16dp"
+                        android:textColor="#333333"
+                        android:textSize="16sp"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <!-- Submit Button with Gradient -->
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/gradient_button"
+                android:elevation="8dp"
+                android:letterSpacing="0.05"
+                android:text="Add Doctor"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/advanced_fields_container"
+                />
+
+            <!-- Decorative Dots -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dots_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_submit"
+                >
+
+                <View
+                    android:id="@+id/dot_1"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:background="@drawable/dot_blue"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <View
+                    android:id="@+id/dot_2"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/dot_purple"
+                    app:layout_constraintStart_toEndOf="@id/dot_1"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <View
+                    android:id="@+id/dot_3"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/dot_orange"
+                    app:layout_constraintStart_toEndOf="@id/dot_2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <View
+                    android:id="@+id/dot_4"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/dot_pink"
+                    app:layout_constraintStart_toEndOf="@id/dot_3"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <View
+                    android:id="@+id/dot_5"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/dot_green"
+                    app:layout_constraintStart_toEndOf="@id/dot_4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

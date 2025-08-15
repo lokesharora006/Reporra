@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/homeFragment">
 
-
+    <!-- Home Fragment -->
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.reporra.view.fragments.HomeFragment"
@@ -12,25 +13,52 @@
         <action
             android:id="@+id/action_homeFragment_to_myNetworkFragment"
             app:destination="@id/myNetworkFragment" />
-
-
     </fragment>
 
-
+    <!-- My Network Fragment -->
     <fragment
         android:id="@+id/myNetworkFragment"
         android:name="com.example.reporra.view.fragments.MyNetworkFragment"
-        android:label="MyNetworkFragment">
+        android:label="MyNetworkFragment"
+        tools:ignore="ExtraText">
+
         <action
             android:id="@+id/action_myNetworkFragment_to_areaFragment"
             app:destination="@id/areaFragment" />
 
+        <action
+            android:id="@+id/action_myNetworkFragment_to_doctorFragment"
+            app:destination="@id/doctorFragment" />
+
+        <action
+            android:id="@+id/action_myNetworkFragment_to_chemistFragment"
+            app:destination="@+id/chemistFragment" />"
+
+        <action
+            android:id="@+id/action_myNetworkFragment_to_stockistFragment"
+            app:destination="@id/stockistFragment" />"
 
     </fragment>
 
+    <!-- Area Fragment -->
     <fragment
         android:id="@+id/areaFragment"
         android:name="com.example.reporra.view.fragments.mynetwork.area.AreaFragment"
         android:label="AreaFragment" />
 
+    <!-- Doctor Fragment -->
+    <fragment
+        android:id="@+id/doctorFragment"
+        android:name="com.example.reporra.view.fragments.mynetwork.doctor.DoctorFragment"
+        android:label="DoctorFragment" />
+
+    <fragment
+        android:id="@+id/chemistFragment"
+        android:name="com.example.reporra.view.fragments.mynetwork.chemist.ChemistFragment"
+        android:label="ChemistFragment" />
+
+    <fragment
+        android:id="@+id/stockistFragment"
+        android:name="com.example.reporra.view.fragments.mynetwork.stockist.StockistFragment"
+        android:label="StockistFragment" />
 </navigation>

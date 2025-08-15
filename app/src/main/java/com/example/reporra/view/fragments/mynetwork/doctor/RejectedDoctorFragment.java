@@ -1,5 +1,6 @@
-package com.example.reporra.view.fragments.mynetwork.area;
+package com.example.reporra.view.fragments.mynetwork.doctor;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,30 +11,34 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.reporra.R;
-import com.example.reporra.data.adapters.viewpager.RejectedPagerAdapter;
+import com.example.reporra.data.adapters.viewpager.RejectedAreaPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
-public class RejectedFragment extends Fragment {
+
+public class RejectedDoctorFragment extends Fragment {
 
 
     private TabLayout tabLayout;
     private ViewPager2 viewPager;
 
 
-    public RejectedFragment() {
+    public RejectedDoctorFragment() {
         // Required empty public constructor
     }
 
+
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_rejected, container, false);
-        tabLayout = view.findViewById(R.id.rejectedTabLayout);
-        viewPager = view.findViewById(R.id.rejectedViewPager);
+        View view = inflater.inflate(R.layout.fragment_rejected_doctor, container, false);
+        tabLayout = view.findViewById(R.id.rejectedDoctorTabLayout);
+        viewPager = view.findViewById(R.id.rejectedDoctorViewPager);
 
-        RejectedPagerAdapter adapter = new RejectedPagerAdapter(this);
+
+        RejectedAreaPagerAdapter adapter = new RejectedAreaPagerAdapter(this);
         viewPager.setAdapter(adapter);
 
         new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> {

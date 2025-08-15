@@ -4,7 +4,6 @@ package com.example.reporra.view.activities;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -56,7 +55,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         presenter = new LoginPresenter(this, FirebaseAuth.getInstance());
 
         forgetbtn.setOnClickListener(view -> {
-            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+            Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
             startActivity(intent);
         });
 

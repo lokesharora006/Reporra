@@ -6,20 +6,14 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.widget.SearchView;
-
 import com.example.reporra.R;
-import com.example.reporra.data.adapters.viewpager.AreaPagerAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.tabs.TabLayout;
-import com.google.android.material.tabs.TabLayoutMediator;
 
 
 public class AreaFragment extends Fragment {
@@ -32,6 +26,7 @@ public class AreaFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @SuppressLint("MissingInflatedId")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -68,7 +63,7 @@ public class AreaFragment extends Fragment {
             } else if (itemId == R.id.nav_deleted) {
                 selectedFragment = new DeletedAreasFragment();
             } else if (itemId == R.id.nav_rejected) {
-                selectedFragment = new RejectedFragment();
+                selectedFragment = new RejectedAreaFragment();
             }
 
             return loadFragment(selectedFragment);

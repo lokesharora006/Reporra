@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragments.mynetwork.area.RejectedFragment"
+    tools:context=".view.fragments.mynetwork.area.RejectedAreaFragment"
     >
 
     <com.google.android.material.tabs.TabLayout
-        android:id="@+id/rejectedTabLayout"
+        android:id="@+id/rejectedAreaTabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabMode="fixed"
@@ -16,7 +16,7 @@
         />
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/rejectedViewPager"
+        android:id="@+id/rejectedAreaViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />

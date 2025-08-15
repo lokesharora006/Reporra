@@ -2,13 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-<<<<<<<< HEAD:app/src/main/res/layout/fragment_doctor_tab.xml
-    tools:context=".view.fragments.mynetwork.doctor.DoctorTabFragment"
-========
-    tools:context=".view.fragments.mynetwork.doctor.ActiveDoctorFragments"
->>>>>>>> areasfragments:app/src/main/res/layout/fragment_active_doctor_fragments.xml
-    >
+    android:layout_height="match_parent">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

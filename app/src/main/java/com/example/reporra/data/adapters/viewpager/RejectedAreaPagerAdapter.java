@@ -7,9 +7,9 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import com.example.reporra.view.fragments.mynetwork.area.RejectedAreaAdditionsFragment;
 import com.example.reporra.view.fragments.mynetwork.area.RejectedAreaDeletionsFragment;
 
-public class RejectedPagerAdapter extends FragmentStateAdapter {
+public class RejectedAreaPagerAdapter extends FragmentStateAdapter {
 
-    public RejectedPagerAdapter(@NonNull Fragment fragment) {
+    public RejectedAreaPagerAdapter(@NonNull Fragment fragment) {
         super(fragment);
     }
 

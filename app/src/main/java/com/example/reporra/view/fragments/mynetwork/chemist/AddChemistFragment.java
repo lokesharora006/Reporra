@@ -12,10 +12,10 @@ import com.example.reporra.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link AddChemistBottomSheetFragment#newInstance} factory method to
+ * Use the {@link AddChemistFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AddChemistBottomSheetFragment extends Fragment {
+public class AddChemistFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class AddChemistBottomSheetFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public AddChemistBottomSheetFragment() {
+    public AddChemistFragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +36,11 @@ public class AddChemistBottomSheetFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment AddChemistBottomSheetFragment.
+     * @return A new instance of fragment AddChemistFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AddChemistBottomSheetFragment newInstance(String param1, String param2) {
-        AddChemistBottomSheetFragment fragment = new AddChemistBottomSheetFragment();
+    public static AddChemistFragment newInstance(String param1, String param2) {
+        AddChemistFragment fragment = new AddChemistFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -61,6 +61,6 @@ public class AddChemistBottomSheetFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_chemist_bottom_sheet, container, false);
+        return inflater.inflate(R.layout.fragment_add_chemist, container, false);
     }
 }

@@ -1,16 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".view.fragments.mynetwork.doctor.DoctorTabFragment"
     >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <SearchView
+        android:id="@+id/doctorsearchView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
+        android:layout_height="wrap_content"
+        android:queryHint="Search Area"
         />
 
-</FrameLayout>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/doctortabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabIndicatorFullWidth="false"
+        app:tabMode="fixed"
+        tools:ignore="SpeakableTextPresentCheck"
+        />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/doctortabviewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+
+</LinearLayout>

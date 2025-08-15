@@ -13,4 +13,8 @@
     <color name="gradient_pink">#f5576c</color>
     <color name="text_dark">#333333</color>
     <color name="text_hint">#999999</color>
+    <color name="gradient_green">#4CAF50</color>
+    <color name="gradient_teal">#26A69A</color>
+    <color name="gradient_indigo">#3F51B5</color>
+    <color name="gradient_red">#F44336</color>
 </resources>

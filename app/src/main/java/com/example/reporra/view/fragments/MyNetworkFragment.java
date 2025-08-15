@@ -23,10 +23,27 @@ public class MyNetworkFragment extends Fragment {
 
 
         CardView cardArea = view.findViewById(R.id.card_area);
+        CardView cardDoctor = view.findViewById(R.id.card_doctor); // <-- doctor card
+        CardView cardChemist = view.findViewById(R.id.card_chemist); // <-- chemist card
+        CardView cardStockist = view.findViewById(R.id.card_stockist); // <-- stockist card
+
 
         cardArea.setOnClickListener(v ->
                 Navigation.findNavController(v).navigate(R.id.action_myNetworkFragment_to_areaFragment)
         );
+
+        cardDoctor.setOnClickListener(v ->
+                Navigation.findNavController(v).navigate(R.id.action_myNetworkFragment_to_doctorFragment)
+        );
+
+        cardChemist.setOnClickListener(v ->
+                Navigation.findNavController(v).navigate(R.id.action_myNetworkFragment_to_chemistFragment)
+        );
+
+        cardStockist.setOnClickListener(v ->
+                Navigation.findNavController(v).navigate(R.id.action_myNetworkFragment_to_stockistFragment)
+        );
+
         return view;
 
     }
